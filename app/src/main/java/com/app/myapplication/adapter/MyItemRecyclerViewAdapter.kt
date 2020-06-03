@@ -1,14 +1,7 @@
-package com.app.myapplication
+package com.app.myapplication.adapter
 
-import android.Manifest
-import android.content.ActivityNotFoundException
-import android.content.Intent
-import android.graphics.Bitmap
-import android.net.Uri
-import android.os.Environment
-import android.util.Log
+
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
@@ -16,15 +9,18 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.app.myapplication.R
 import com.app.myapplication.databinding.FragmentRssItemBinding
+import com.app.myapplication.listener.OnItemClickListener
+import com.app.myapplication.model.RssItem
+import com.app.myapplication.utils.GlideApp
 import com.bumptech.glide.request.RequestOptions
+import androidx.databinding.library.baseAdapters.BR
 
 
 class MyItemRecyclerViewAdapter(
-    private val mValues: List<RssItem>,
-    private val context : FragmentActivity?,
-    private val host : Fragment?
-   ) : RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder>() {
+    private val mValues: List<RssItem>
+) : RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder>() {
 
 
     private var mListener: OnItemClickListener<RssItem>? = null
@@ -38,8 +34,6 @@ class MyItemRecyclerViewAdapter(
             LayoutInflater.from(parent.context),
             R.layout.fragment_rss_item, parent, false
         )
-
-
         return ViewHolder(binding)
     }
 
@@ -47,7 +41,7 @@ class MyItemRecyclerViewAdapter(
         val item = mValues[position]
 
         holder.bind(item)
-        holder.itemViewpagerBinding.setClickListener(mListener)
+        holder.itemViewpagerBinding.clickListener = mListener
 
     }
 
@@ -59,10 +53,11 @@ class MyItemRecyclerViewAdapter(
         fun bind(obj: Any?) {
             itemViewpagerBinding.setVariable(BR.model, obj)
             itemViewpagerBinding.executePendingBindings()
+        }
 
-        }init {
+        init {
             itemViewpagerBinding.root.setOnClickListener {
-               mListener!!.onItemClick(it, RssItem(), position  )
+                mListener!!.onItemClick(it, RssItem(), position)
 
             }
         }
@@ -70,8 +65,11 @@ class MyItemRecyclerViewAdapter(
 
 }
 
+/**
+ * parsing image url into imageview
+ */
 @BindingAdapter(value = ["imageUrl"])
-fun   showImage(imageView: ImageView, imageUrl: String?) {
+fun showImage(imageView: ImageView, imageUrl: String?) {
     val requestOptions = RequestOptions()
         .error(R.drawable.jobs_place_holder)
         .placeholder(R.drawable.jobs_place_holder)

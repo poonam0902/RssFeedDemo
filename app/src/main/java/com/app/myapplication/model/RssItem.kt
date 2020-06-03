@@ -1,4 +1,4 @@
-package com.app.myapplication
+package com.app.myapplication.model
 
 class RssItem {
     var title = ""

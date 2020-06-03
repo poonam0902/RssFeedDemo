@@ -1,25 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--    xmlns:tools="http://schemas.android.com/tools"-->
-<!--    android:id="@+id/listV"-->
-<!--    android:name="com.app.myapplication.RSSFragment"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="match_parent"-->
-<!--    app:layoutManager="LinearLayoutManager"-->
-<!--    tools:context=".RSSFragment"-->
-<!--    tools:listitem="@layout/fragment_rss_item" />-->
 
 <layout>
 
-        <androidx.viewpager2.widget.ViewPager2
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/viewPager2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context=".RSSFragment"
-            tools:listitem="@layout/fragment_rss_item"/>
+    <androidx.viewpager2.widget.ViewPager2 xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/viewPager2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragment.RSSFragment"
+        tools:listitem="@layout/fragment_rss_item" />
 
 </layout>

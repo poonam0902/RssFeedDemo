@@ -1,17 +1,21 @@
-package com.app.myapplication
+package com.app.myapplication.utils
 
+import com.app.myapplication.model.RssItem
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserException
 import org.xmlpull.v1.XmlPullParserFactory
 import java.io.IOException
 import java.io.InputStream
 
+/**
+ * class for parsing given url
+ */
 class RssParser {
     private val rssItems = ArrayList<RssItem>()
-    private var rssItem : RssItem ?= null
+    private var rssItem: RssItem? = null
     private var text: String? = null
 
-    fun parse(inputStream: InputStream):List<RssItem> {
+    fun parse(inputStream: InputStream): List<RssItem> {
         try {
             val factory = XmlPullParserFactory.newInstance()
             factory.isNamespaceAware = true
@@ -23,16 +27,16 @@ class RssParser {
                 val tagname = parser.name
                 when (eventType) {
                     XmlPullParser.START_TAG -> if (tagname.equals("item", ignoreCase = true)) {
-                        // create a new instance of employee
+                        // create a new instance of feed
                         foundItem = true
                         rssItem = RssItem()
                     }
                     XmlPullParser.TEXT -> text = parser.text
                     XmlPullParser.END_TAG -> if (tagname.equals("item", ignoreCase = true)) {
-                        // add employee object to list
+                        // add feed object to list
                         rssItem?.let { rssItems.add(it) }
                         foundItem = false
-                    } else if ( foundItem && tagname.equals("title", ignoreCase = true)) {
+                    } else if (foundItem && tagname.equals("title", ignoreCase = true)) {
                         rssItem!!.title = text.toString()
                     } else if (foundItem && tagname.equals("link", ignoreCase = true)) {
                         rssItem!!.link = text.toString()
@@ -42,11 +46,9 @@ class RssParser {
                         rssItem!!.category = text.toString()
                     } else if (foundItem && tagname.equals("description", ignoreCase = true)) {
                         rssItem!!.description = text.toString()
-                    }
-                    else if (foundItem && tagname.equals("url", ignoreCase = true)) {
+                    } else if (foundItem && tagname.equals("url", ignoreCase = true)) {
                         rssItem!!.url = text.toString()
-                    }
-                    else if (foundItem && tagname.equals("author", ignoreCase = true)) {
+                    } else if (foundItem && tagname.equals("author", ignoreCase = true)) {
                         rssItem!!.author = text.toString()
                     }
                 }

@@ -1,4 +1,4 @@
-package com.app.myapplication
+package com.app.myapplication.utils
 
 import com.bumptech.glide.annotation.GlideModule
 import com.bumptech.glide.module.AppGlideModule
