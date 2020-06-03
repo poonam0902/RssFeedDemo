@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+        <variable
+            name="model"
+            type="com.app.myapplication.RssItem" />
+        <variable
+            name="clickListener"
+            type="com.app.myapplication.OnItemClickListener" />
+        <variable
+            name="position"
+            type="int" />
+    </data>
+
+
+<androidx.cardview.widget.CardView
+    android:id="@+id/cardView"
+    android:padding="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+        <LinearLayout
+            android:id = "@+id/ll_main"
+            android:orientation="vertical"
+            android:layout_margin="8dp"
+            android:onClick="@{v -> clickListener.onItemClick(v,model,position)}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <ImageView
+                android:id="@+id/featuredImg"
+                android:layout_width="match_parent"
+                android:minWidth="300dp"
+                android:minHeight="300dp"
+                app:imageUrl="@{model.url}"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/txtTitle"
+                android:text="@{model.title}"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/txtPubdate"
+                android:layout_marginTop="8dp"
+                android:text="@{model.pubDate}"
+                android:textStyle="italic"
+                android:textSize="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/txtContent"
+                android:textStyle="normal"
+                android:text="@{model.description}"
+                android:visibility="visible"
+                android:textSize="14sp"
+                android:maxLines="10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:gravity="center|bottom"
+        android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/shareBtn"
+            android:text="Share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_selector"
+            android:onClick="@{v -> clickListener.onItemClick(v,model,position)}"
+            android:layout_gravity="bottom|center_horizontal"/>
+
+    </LinearLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+</layout>

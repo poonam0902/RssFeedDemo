@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">RssNewsFeedDemo</string>
+    <string name="title_txt">Title</string>
+    <string name="publication_date_txt">Publication Date</string>
+    <string name="share">Share</string>
+</resources>
