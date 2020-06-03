@@ -177,6 +177,7 @@ class RSSFragment : Fragment(), OnItemClickListener<RssItem>, EasyPermissions.Pe
         val intent = Intent()
         intent.setAction(Intent.ACTION_SEND);
         intent.setType("image/*");
+        intent.setPackage("com.whatsapp");
         intent.putExtra(android.content.Intent.EXTRA_SUBJECT, "");
         intent.putExtra(android.content.Intent.EXTRA_TEXT, link);
         intent.putExtra(Intent.EXTRA_STREAM, uri);

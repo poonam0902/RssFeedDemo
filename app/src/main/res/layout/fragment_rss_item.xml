@@ -23,13 +23,14 @@
     android:padding="8dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     >
         <LinearLayout
             android:id = "@+id/ll_main"
             android:orientation="vertical"
-            android:layout_margin="8dp"
             android:onClick="@{v -> clickListener.onItemClick(v,model,position)}"
             android:layout_width="match_parent"
+            android:background="@drawable/card_background_grey"
             android:layout_height="match_parent"
             >
             <ImageView
@@ -37,6 +38,9 @@
                 android:layout_width="match_parent"
                 android:minWidth="300dp"
                 android:minHeight="300dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
                 app:imageUrl="@{model.url}"
                 android:layout_height="wrap_content" />
             <TextView
@@ -44,7 +48,8 @@
                 android:text="@{model.title}"
                 android:textStyle="bold"
                 android:textSize="18sp"
-                android:layout_width="match_parent"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"                android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <TextView
@@ -53,6 +58,8 @@
                 android:text="@{model.pubDate}"
                 android:textStyle="italic"
                 android:textSize="12dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -63,6 +70,8 @@
                 android:visibility="visible"
                 android:textSize="14sp"
                 android:maxLines="10"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -70,6 +79,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dip"
         android:layout_weight="1"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:gravity="center|bottom"
         android:orientation="vertical" >
 
