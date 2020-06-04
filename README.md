@@ -13,7 +13,7 @@ Each item describes the title, url, publication date and description(body) of th
 
 In This app We are using one simple link which gives news feed data of particular city
 
-Concepts we are using are:
+Concepts we are using are:  
 - Data Binding  
 - Android KTX  
 - Extension functions  
