@@ -15,19 +15,12 @@ In This app We are using one simple link which gives news feed data of particula
 
 Concepts we are using are
 
--Data Binding
-
--Android KTX
-
--Extension functions
-
--Late-initialized properties
-
--Null safety
-
--Data classes
-
--Inheritance
-
+-Data Binding  
+-Android KTX  
+-Extension functions  
+-Late-initialized properties  
+-Null safety  
+-Data classes  
+-Inheritance  
 -Interoperability with Java
 
