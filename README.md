@@ -11,9 +11,10 @@ link contains the url of the website
 item element consists of contents of the website. 
 Each item describes the title, url, publication date and description(body) of the respective content.
 
-In This app We are using one simple link which gives news feed data of perticular city
+In This app We are using one simple link which gives news feed data of particular city
 
 Concepts we are using are
+
 -Data Binding
 
 -Android KTX
