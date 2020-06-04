@@ -3,24 +3,6 @@ RSS stands for Really Simple Syndication. Websites generally provide RSS Feeds f
 It’s in XML format and is typically used to access the latest contents fed in the website.
 An RSS Feed xml document looks like this:
 
-<channel>
-    <title></title>
-    <link></link>
-    <description></description>
-    <item>
-        <title></title>
-        <link></link>
-        <pubDate></pubDate>
-        <description></description>
-    </item>
-    <item>
-    .
-    .
-    .
-    .
-    </item>
-</channel>
-
 channel is the root element used to hold the below-mentioned elements.
 title is the title of the website.
 link contains the url of the website
